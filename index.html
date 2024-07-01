@@ -1,115 +1,43 @@
+Jam digital+kalender
+
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-
-  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;600&display=swap" />
-
-  <link rel="stylesheet" href="/assets/css/style.css" />
-
-  <title>PROJECT SWD STORE</title>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
-
-  <link rel="shortcut icon" href="https://s.wapblog.id/c/favicon.ico" type="image/x-icon" />
-
-  <meta charset="UTF-8" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta http-equiv="X-UA-Compatible" content="IE=10" />
-
-  <meta name="theme-color" content="#de1339" />
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>jam digital</title>
 </head>
-
-<body>
-  
-  <header id="header">
-
-    <div class="header-bars">
-
-      <div class="container">
-
-        <ul>
-
-          <li><a href="https://www.wapblog.id"><i class="fa fa-globe"></i><span class="hdd">WapBlog.ID</span></a></li>
-
-          <li><a href="https://www.facebook.com/www.wapblog.id"><i class="fa fa-facebook"></i><span class="hdd">Facebook</span></a></li>
-
-          <li><a href="https://github.com/WapBlog-ID"><i class="fa fa-github"></i><span class="hdd">Github</span></a></li>
-
-        </ul>
-
-      </div>
-
+<body class="bg-dark">
+  <div class="container bg-light border border-4 border-success rounded-4 p-3 mt-5" style="width: 295px;">
+    <div id="Date" class="d-flex justify-content-center text-center mt-1">..., ...-...-...</div>
+      <ul class="list-unstyled d-flex justify-content-center display-4 h2 fw-bold">
+        <li id="hours">..</li>
+        <li id="point">:</li>
+        <li id="min">..</li>
+        <li id="point">:</li>
+        <li id="sec">..</li>
+      </ul>      
     </div>
-    
-    <nav id="navbar">
-
-      <div class="container">
-
-        <div class="navbar-brand"><a href="index.html">Project WapBlog.ID</a></div>
-
-        <div class="navbar-menu">
-
-          <ul>
-
-            <li><a href="index.html">Home</a></li>
-
-            <li><a href="#done">Done</a></li>
-
-            <li><a href="#in-progress">In Progress</a></li>
-
-            <li><a href="#todo">Todo</a></li>
-
-            <li><a class="switch-mode" id="dark">Dark: <i class="fa fa-toggle-off"></i> <span class="status">Off</span></a></li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </nav>
-    
-    <div class="main-header">
-
-      <div class="container">
-
-        <h1><a href="../index.html">Project WapBlog.ID</a></h1>
-
-        <h2>List of WapBlog.ID's project</h2>
-
-      </div>
-
-    </div>
-
-  </header>
   
-<main id="main">
-
-  <section id="content">
-      
-  </section>
-    
-  <section id="sidebar"></section>
-    
-</main>
-
-<footer id="footer">
-
-  <div class="footer-copy">
-
-    <div class="container">&copy; 2015-<span class="current-year">2020</span> <a href="https://www.wapblog.id">WapBlog.ID</a></div>
-
-  </div>
-
-</footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+  <script>
+    function jam(){
+      var namaTahun = [ "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" ];
+      var namaHari = [ "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu" ];
+      var hari_ini = new Date();
+      document.getElementById('Date').innerHTML = (namaHari[hari_ini.getDay()] + ", " + hari_ini.getDate()+ '-' + namaTahun[hari_ini.getMonth()] + '-' +hari_ini.getFullYear());
+      var h = hari_ini.getHours();
+      var m = hari_ini.getMinutes();
+      var s = hari_ini.getUTCSeconds();
+      var day = h<11 ? 'AM' : 'PM';
+        h = h<10? '0'+h: h;
+        m = m<10? '0'+m: m;
+        s = s<10? '0'+s: s;
+      document.getElementById('hours').innerHTML = h;
+      document.getElementById('min').innerHTML = m;
+      document.getElementById('sec').innerHTML = s;
+    }var inter = setInterval(jam,1000);
+  </script>
 </body>
-
 </html>

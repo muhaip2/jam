@@ -40,4 +40,215 @@ Jam digital+kalender
     }var inter = setInterval(jam,1000);
   </script>
 </body>
+
+
+export default {
+  async fetch(request) {
+    const html = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vless By SWD STORE</title>
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                color: #000;
+                font-size: 14px;
+                background-size: cover;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                font-family: Arial, sans-serif;
+                transition: background-image 1s ease-in-out;
+            }
+    
+            .main {
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)); /* Latar belakang transparan */
+                color: #451428;
+                max-width: 370px;
+                position: center;
+                height: auto;
+                border-radius: 30px;
+                border: 5px solid #451428;
+                padding: 5px;
+                margin: auto;
+                text-align: center;
+                animation: fadein 1s;
+                -moz-animation: fadein 1s; /* Firefox */
+                -webkit-animation: fadein 1s; /* Safari and Chrome */
+                -o-animation: fadein 1s; /* Opera */
+            }
+    
+            .frame {
+                border: 0;
+                padding: 0;
+                margin: 0;
+                background-color: rgba(240, 240, 240, 0); /* Warna latar belakang abu-abu */
+            }
+    
+            @keyframes gradient-shift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+    
+            .brand {
+                background: linear-gradient(90deg, #0F111F, red, #0F111F);
+                background-size: 200% 200%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                padding: 10px;
+                margin: 10px;
+                font-size: 35px;
+                letter-spacing: 5px;
+                position: relative;
+                animation: gradient-shift 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+            }
+    
+            .brand::after {
+                content: '';
+                display: block;
+                height: 5px;
+                width: 100%;
+                background: linear-gradient(90deg, #0F111F, red, #0F111F);
+                background-size: 200% 200%;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                animation: gradient-shift 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+            }
+    
+            .button {
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)); /* Latar belakang transparan */
+                border: none;
+                border-radius: 10px;
+                color: black;
+                font-weight: bold;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px 0;
+                width: 100%;
+                height: 40px;
+                transition: all 0.3s ease;
+            }
+    
+            .button:hover {
+                font-weight: bold;
+                box-shadow: 0 10px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+                height: 50px;
+            }
+    
+            .button02 {
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)); /* Latar belakang transparan */
+                border: none;
+                border-radius: 20px;
+                color: black;
+                font-weight: bold;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px 0;
+                width: 70%;
+                height: 40px;
+                transition: all 0.3s ease;
+            }
+    
+            .button02:hover {
+                font-weight: bold;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+            }
+    
+            .button2 {
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)); /* Latar belakang transparan */
+                border: none;
+                border-radius: 20px;
+                color: black;
+                font-weight: bold;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px 3px;
+                width: 45%;
+                height: 40px;
+                transition: all 0.3s ease;
+            }
+    
+            .button2:hover {
+                font-weight: bold;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+            }
+    
+            .spinner-box {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="main" class="main">
+        <div class="box">
+            <div class="frame">
+                <h3 class="brand">VLESS BY SWD STORE</h3>
+                <button class="button" onclick="change()">SERVER INDONESIA</button><br>
+                <button class="button02" onclick="window.location='https://id.afrcloud.xyz/vless';">GOOGLE ID</button>
+                <button class="button" onclick="change()">🇸🇬 SERVER SINGAPORE 🇸🇬</button><br>
+                <button class="button2" onclick="window.location='https://sg.afrcloud.xyz/vless';">SG BELNET</button>
+                <button class="button2" onclick="window.location='https://sg1.afrcloud.xyz/vless';">SG DO</button>
+                <button class="button2" onclick="window.location='https://sg2.afrcloud.xyz/vless';">SG TCC</button>
+                <button class="button2" onclick="window.location='https://sg3.afrcloud.xyz/vless';">SG ORACLE</button>
+                <button class="button2" onclick="window.location='https://sg4.afrcloud.xyz/vless';">SG BYTEVIRT</button>
+                <button class="button2" onclick="window.location='https://sg5.afrcloud.xyz/vless';">SG AMAZON</button>
+                <button class="button2" onclick="window.location='https://sg6.afrcloud.xyz/vless';">SG OVH SAS</button>
+                <button class="button2" onclick="window.location='https://sg7.afrcloud.xyz/vless';">SG ALIBABA</button>
+                <button class="button02" onclick="window.location='https://sg8.afrcloud.xyz/vless';">SG AKAMAI</button>
+            </div>
+        </div>
+        <button class="button" onclick="window.location='https://t.me/noir7r';">Created by : Noir7r</button>
+    </div>
+    <script>
+        const backgrounds = [
+            'url("https://raw.githubusercontent.com/aframdanicloud/bgangel/main/Angel%20Chan%20(9).png")',
+            'url("https://raw.githubusercontent.com/aframdanicloud/bgangel/main/Angel%20Chan%20(23).png")',
+            'url("https://raw.githubusercontent.com/aframdanicloud/bgangel/main/Angel%20Chan%20(24).png")',
+            'url("https://raw.githubusercontent.com/aframdanicloud/bgangel/main/Angel%20Chan%20(28).png")',
+            'url("https://raw.githubusercontent.com/aframdanicloud/bgangel/main/Angel%20Chan%20(28).png")'
+        ];
+    
+        let currentIndex = 0;
+    
+    function changeBackground() {
+        document.body.style.backgroundImage = backgrounds[currentIndex];
+        currentIndex = (currentIndex + 1) % backgrounds.length;
+    }
+    // Change background every 60 seconds
+    setInterval(changeBackground, 3000);
+    
+    // Set the initial background
+    changeBackground();
+		function redirectToTelegram() {
+			window.location.href = 'https://t.me/Noir7R';
+		}
+    </script>
+</body>
+</html>
+    `;
+    return new Response(html, {
+      headers: {
+        "content-type": "text/html;charset=UTF-8",
+      },
+    });
+  },
+};
 </html>
